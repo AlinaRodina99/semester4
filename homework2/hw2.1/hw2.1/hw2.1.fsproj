@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="FoldCount.fs" />
+    <Compile Include="MapCount.fs" />
+    <Compile Include="FilterCount.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
