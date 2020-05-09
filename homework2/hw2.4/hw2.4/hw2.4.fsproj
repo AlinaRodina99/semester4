@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Compile Include="InfinitePrimes.fs" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
 
 </Project>
