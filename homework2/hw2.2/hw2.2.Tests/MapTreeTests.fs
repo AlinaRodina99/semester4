@@ -33,3 +33,4 @@ let ``tests with int values of elements of the tree`` (func : int -> int) (initi
 [<Test>]
 let ``tests with string values of elements of the tree`` (func : string -> int) (initialTree : Tree<string>) (newTree : Tree<int>) =
     mapTree func initialTree |> should equal newTree
+
