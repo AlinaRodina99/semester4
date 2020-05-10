@@ -11,6 +11,8 @@ open InfinitePrimes
 [<TestCase(4, 11)>]
 [<TestCase(5, 13)>]
 [<TestCase(6, 17)>]
+[<TestCase(7, 19)>]
+[<TestCase(8, 23)>]
 [<TestCase(99, 541)>]
 [<Test>]
 let testsToCheckNumbersInInfiniteSequenceOfPrimes index x =
