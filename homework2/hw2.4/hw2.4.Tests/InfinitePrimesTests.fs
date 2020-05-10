@@ -16,4 +16,4 @@ open InfinitePrimes
 [<TestCase(99, 541)>]
 [<Test>]
 let testsToCheckNumbersInInfiniteSequenceOfPrimes index x =
-    Seq.item(index) infinitePrimes |> should equal x
+    infinitePrimes |> Seq.item index |> should equal x

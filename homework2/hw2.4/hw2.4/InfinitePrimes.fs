@@ -7,7 +7,7 @@ let infinitePrimes =
     let isPrime n =
         let rec isPrimeRecursive n i = 
             match n with 
-            | _ when n <= 3 || i >= n -> true
+            | _ when n <= 3 || i * i > n -> true
             | _ when n % i = 0 -> false
             | _ -> isPrimeRecursive n (i + 1)
         isPrimeRecursive n 2
