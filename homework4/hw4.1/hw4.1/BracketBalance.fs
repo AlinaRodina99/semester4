@@ -1,5 +1,6 @@
 ﻿module BracketBalance
 
+///<summary> Function to check bracket balance of input string.</summary>
 let bracketBalance (str : string) =
     
     let checkBracketBalance =

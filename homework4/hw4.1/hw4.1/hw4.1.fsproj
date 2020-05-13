@@ -1,14 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>hw4._1</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="BracketBalance.fs" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
 
 </Project>

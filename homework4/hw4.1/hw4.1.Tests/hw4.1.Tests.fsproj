@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>hw4._1.Tests</RootNamespace>
 
     <IsPackable>false</IsPackable>
-    <GenerateProgramFile>false</GenerateProgramFile>
+    <GenerateProgramFile>true</GenerateProgramFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,8 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="UnitTest1.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="BracketBalanceTests.fs" />
   </ItemGroup>
 
   <ItemGroup>
