@@ -15,7 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Tests.fs" />
+    <Compile Include="PriorityQueueTests.fs" />
+    <Compile Include="TreeTests.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Test2\Test2.fsproj" />
   </ItemGroup>
 
 </Project>
