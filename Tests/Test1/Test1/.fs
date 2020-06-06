@@ -1,0 +1,4 @@
+﻿module SinusesArithmeticMean
+
+
+sdfsdf
