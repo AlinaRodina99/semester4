@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="Queue.fs" />
+    <Compile Include="SumEvenFibonacciNumbers.fs" />
+  </ItemGroup>
+
 </Project>
