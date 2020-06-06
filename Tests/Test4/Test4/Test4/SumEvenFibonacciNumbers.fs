@@ -1,6 +1,6 @@
 ﻿module SumEvenFibonacciNumbers
 
-//function to sum all even numbers <= 100000
+//function to sum all even numbers <= 1000000
 let sumEvenFibonacciNumbers =
     
     let generateFinbonacciSeq =

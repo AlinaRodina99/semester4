@@ -7,6 +7,8 @@ open System
 
 let mutable queue = new Queue<int>()
 
+let mutable stringQueue = new Queue<int>()
+
 [<SetUp>]
 let ``Init`` () = queue <- new Queue<int>()
 
@@ -25,15 +27,8 @@ let ``tests to check whether enqueue method is working`` () =
 
 [<Test>]
 let ``tests to check whether dequeue method is working`` () =
-    queue.Enqueue 2 |> ignore
-    queue.Enqueue 3 |> ignore
-    queue.Dequeue 2 |> ignore
-    queue.FindElement 2 |> should equal false
-    (fun () -> queue.Dequeue 2 |> ignore) |> should throw typeof<ArgumentException>
-
-[<Test>]
-let ``tests to check whether find element method is working`` () =
-    (fun () -> queue.FindElement 3 |> ignore) |> should throw typeof<ArgumentException>
-    queue.Enqueue 60 |> ignore
-    queue.FindElement 60 |> should equal true
-    queue.FindElement 12 |> should equal false
+    queue.Enqueue 2 
+    queue.Enqueue 3 
+    queue.Dequeue |> should equal 2
+    queue.Dequeue |> should equal 3
+    (fun () -> queue.Dequeue |> ignore) |> should throw typeof<ArgumentException>
