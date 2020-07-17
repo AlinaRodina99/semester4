@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Beta-reduction}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+$\left(\left(\lambda a.\left(\lambda b.b\;b\right)\left(\lambda b.b\;b\right)\right)b\right)\left(\left(\lambda c.\left(c\;b\right)\right)\left(\lambda a.a\right)\right)=_\beta\\
+\left(\left(\lambda b.b\;b\right)\left(\lambda b.b\;b\right)\right)\left(\left(\lambda c.\left(c\;b\right)\right)\left(\lambda a.a\right)\right)=_\beta\left(\left(\lambda b.b\;b\right)\left(\lambda b.b\;b\right)\right)\left(\left(\left(\lambda a.a\right)b\right)\right)=_\beta\\ \left(\left(\lambda b.b\;b\right)\left(\lambda b.b\;b\right)\right)\left(\left(b\right)\right)=_\beta\left(\lambda b.b\;b\right)\left(\lambda b.b\;b\right)\left(b\right)
+$
+
+\end{document}
