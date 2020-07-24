@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="PriorityQueue.fs" />
+    <Compile Include="InfiniteSequence.fs" />
+    <Compile Include="MinimumTreeDistance.fs" />
+  </ItemGroup>
+
+</Project>
