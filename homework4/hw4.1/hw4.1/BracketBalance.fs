@@ -36,13 +36,4 @@ let bracketBalance str =
            then checkBracketBalanceRec (List.tail inputString) (List.tail stack)
         else 
            false 
-    checkBracketBalanceRec (str |> Seq.toList) []
-           
-
-    
-
-
-        
-    
-
-        
+    checkBracketBalanceRec (str |> Seq.toList) []   
