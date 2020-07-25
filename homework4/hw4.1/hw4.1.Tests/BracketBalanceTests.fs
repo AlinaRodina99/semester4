@@ -6,15 +6,17 @@ open BracketBalance
 
 let testValues = 
     [
-       "abc", true
-       "(avb)", true
-       "(2+3)", true
-       "{((}afc", false
-       "{{{}}", false
-       "[{(2 + 3 + 4}])", true
-       "(", false
-       "[]", true
-       "[[[((]]avbn]))", true
+       "()", true
+       "(())", true
+       "(()())", true
+       "()[()]{()()[]}", true
+       "", true
+       "[(]{})", false
+       "([)]", false
+       "{()}[(])", false
+       "(]", false
+       "{{}}", true
+       "abc", false
     ] |> List.map (fun (str, checkResult) -> TestCaseData(str, checkResult))
 
 [<TestCaseSource("testValues")>]
