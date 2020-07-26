@@ -17,6 +17,7 @@ let testValues =
        "(]", false
        "{{}}", true
        "abc", false
+       "(((", false
     ] |> List.map (fun (str, checkResult) -> TestCaseData(str, checkResult))
 
 [<TestCaseSource("testValues")>]

@@ -1,39 +1,32 @@
 ﻿module BracketBalance
 
-// Function to check whether the bracket is opening.
+/// Function to check whether the bracket is opening.
 let openingBracket bracket =
     match bracket with 
-    | '(' ->  true
-    | '{' ->  true
-    | '[' ->  true
+    | '(' | '{' | '[' -> true
     | _ -> false
 
-// Function to check whether the bracket is closing.
+/// Function to check whether the bracket is closing.
 let closingBracket bracket =
     match bracket with
-    | ')' -> true
-    | '}' -> true
-    | ']' -> true
+    | ')' | '}' | ']' -> true
     | _ -> false
 
-//Function to check whether two brackets are paired.
+/// Function to check whether two brackets are paired.
 let checkPairOfBrackets firstBracket secondBracket =
     match (firstBracket, secondBracket) with
-    | ('(', ')') -> true
-    | ('{', '}') -> true
-    | ('[', ']') -> true
+    | ('(', ')') | ('{', '}') | ('[', ']') -> true
     | _ -> false
 
-// Function to check bracket balance of input string.
+/// Function to check bracket balance of input string.
 let bracketBalance str =
 
-    let rec checkBracketBalanceRec inputString stack =
-        if List.length inputString = 0 && List.length stack = 0
-           then true
-        else if (openingBracket (List.head inputString))
-           then checkBracketBalanceRec (List.tail inputString) (inputString.Head :: stack)
-        else if (closingBracket (List.head inputString)) && (checkPairOfBrackets (List.head stack) (List.head inputString))
-           then checkBracketBalanceRec (List.tail inputString) (List.tail stack)
-        else 
-           false 
-    checkBracketBalanceRec (str |> Seq.toList) []   
+    let rec bracketBalanceRec inputString stack =
+        match (inputString, stack) with
+        | ([], []) -> true
+        | (hd :: tl, _) when (openingBracket hd) -> bracketBalanceRec tl (hd :: stack)
+        | (hd1 :: tl1, hd2 :: tl2) -> if (openingBracket hd1) then bracketBalanceRec tl1 (hd1 :: stack)
+                                      else if (closingBracket hd1) && (checkPairOfBrackets hd2 hd1) then bracketBalanceRec tl1 tl2
+                                      else false
+        | (_, _) -> false
+    bracketBalanceRec (str |> Seq.toList) []   
