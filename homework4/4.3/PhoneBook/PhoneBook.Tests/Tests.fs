@@ -35,8 +35,8 @@ let ``check that finding phone by name is working`` () =
 
 [<Test>]
 let ``check that reading from file is working`` () =
-    let book = readCurrentDatabaseFromFile path1 |> List.map (fun str -> str.Split())
-               |> List.map (fun str -> Array.pathist str)
+    let book = readCurrentDatabaseFromFile path |> List.map (fun str -> str.Split())
+               |> List.map (fun str -> Array.toList str)
     List.item 0 book |> should equal ["Bob"; "555-555"]
     List.item 1 book |> should equal ["Kate"; "65-78-99"]
     List.item 2 book |> should equal ["Sam"; "66-78-90"]

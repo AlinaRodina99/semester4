@@ -46,9 +46,3 @@ let saveCurrentDatabaseToFile (book : (string * string) list) (path : string) =
 
 /// Function to read database from file on the specified path.
 let readCurrentDatabaseFromFile (path : string) = File.ReadAllLines(path) |> Seq.toList 
-
-
-
-
-
-    
