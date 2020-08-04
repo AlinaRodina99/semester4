@@ -1,6 +1,5 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System
+﻿open System
+open System.IO
 open phoneBookFunctions
 
 [<EntryPoint>]
@@ -17,13 +16,15 @@ let main argv =
         printfn "Input your command: "
         let input = Console.ReadLine()
         match input with
-        | "1" ->  printfn "Goodbye!"
+        | "1" ->  printfn "The program has finished working. Goodbye!"
         | "2" ->  printfn "Input name of your contact:"
                   let name = Convert.ToString(Console.ReadLine())
                   printfn "Input phone of your contact:"
                   let phone = Convert.ToString(Console.ReadLine())
-                  let list = addNewContact list name phone
-                  interactWithUser list
+                  let newList = addNewContact list name phone
+                  if newList = list then printfn "Such contact already exists!"
+                  else printfn "Your contact was succesfully added!"
+                  interactWithUser newList
         | "3" ->  printfn "Input name of your contact:"
                   let name = Convert.ToString(Console.ReadLine())
                   printfn "Phone of the contact: %A" (findPhoneByName list name)
@@ -36,14 +37,15 @@ let main argv =
                   interactWithUser list 
         | "6" ->  printfn "Input path to the file:"
                   let path = Convert.ToString(Console.ReadLine())
-                  saveCurrentDatabaseToFile list path
+                  if File.Exists(path) then saveCurrentDatabaseToFile list path
+                  else printfn "Such path does not exist!"
                   interactWithUser list
         | "7" ->  printfn "Input path to the file:"
                   let path = Convert.ToString(Console.ReadLine())
-                  let data = readCurrentDatabaseFromFile path
-                  printf "%A" data
+                  if File.Exists(path) then printfn "%A" (readCurrentDatabaseFromFile path)
+                  else printfn "Such path does not exist!"
                   interactWithUser list
-        | _ ->    printfn "Choose commands from 1 to 7"
+        | _ ->    printfn "Wrong command! Choose commands from 1 to 7!"
                   interactWithUser list
     interactWithUser [] 
 
