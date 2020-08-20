@@ -16,6 +16,7 @@ type RoundingBuilder(a : int) =
      member _.Return(x) =
         Some(x)
 
-let roundingBuilder = new RoundingBuilder(3)
 
-let rounding 
+let rounding x y a =
+    let roundingBuilder = new RoundingBuilder(a)
+    let result =
