@@ -1,6 +1,7 @@
 ﻿module Network
 
 open Computer
+open OperationSystem
 
 /// Class that describes working of net.
 type Network (computers : Computer list, matrix : bool [,]) =
@@ -12,10 +13,12 @@ type Network (computers : Computer list, matrix : bool [,]) =
      let stepOfInfection () = 
         for i in 0 .. (lentghOfComputerList - 1) do
           for j in 0 .. (lentghOfComputerList - 1) do
-             if matrix.[i, j] = true && (computers.Item i).IsInfected then
-               if (not (computers.Item j).IsInfected) && (computers.Item j).Infect((computers.Item j).GetProbabilityByOS) then
+             List.iter (fun (x : Computer) -> if x.NewlyInfected then x.NewlyInfected <- false) computers
+             if matrix.[i, j] && (computers.Item i).IsInfected && not (computers.Item i).NewlyInfected then 
+               let os_j = new OperationSystem((computers.Item j).OperationSystem)
+               if (not (computers.Item j).IsInfected) && (computers.Item j).Infect(os_j.GetProbabilityByOS) then
                   (computers.Item j).IsInfected <- true
-                  else ()
+                  (computers.Item j).NewlyInfected <- true
      
      /// Function to print current state of net.
      let printStateOfNetwork () =
