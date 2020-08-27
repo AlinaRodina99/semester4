@@ -2,21 +2,9 @@
 
 open System
 
-let divide x y (b : int) =
-    match y with
-    | 0.0 -> None
-    | _ -> Some(Math.Round(Some(x/y).Value, b))
-
-type RoundingBuilder(a : int) =
+type RoundingBuilder(accuracy : int) =
      member _.Bind(x, f) =
-        match x with 
-        | None -> None
-        | Some a -> f a
+         Math.Round((x : float), accuracy) |> f
         
      member _.Return(x) =
-        Some(x)
-
-
-let rounding x y a =
-    let roundingBuilder = new RoundingBuilder(a)
-    let result =
+         Math.Round((x : float), accuracy)

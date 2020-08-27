@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="StringBuilder.fs" />
     <Compile Include="RoundingBuilder.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
