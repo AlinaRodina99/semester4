@@ -1,11 +1,15 @@
 module Tests
 
 open NUnit.Framework
+open FsUnit
+open RoundingBuilder
 
-[<SetUp>]
-let Setup () =
-    ()
 
 [<Test>]
-let Test1 () =
-    Assert.Pass()
+let ``test`` () =
+  let rounding = new RoundingBuilder(3)
+  rounding {
+     let! a = 2.0 / 12.0
+     let! b = 3.5
+     return a / b
+  } |> should equal 0.048
