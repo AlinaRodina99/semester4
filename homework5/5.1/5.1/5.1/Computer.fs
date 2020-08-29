@@ -6,8 +6,6 @@ open OperationSystem
 ///Class that describes computer view.
 type Computer (operationSystem : OperationSystem, name : string, isInfected : bool) =
     
-     let random = new Random()
-
      /// Variable to know if computer was infected.
      let mutable isInfected = isInfected
 
