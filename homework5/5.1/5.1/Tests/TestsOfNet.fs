@@ -4,14 +4,16 @@ open NUnit.Framework
 open Computer
 open Network
 open FsUnit
+open OperationSystem
+open System
 
 let firstComputers = 
   [
-     new Computer("Windows", "HP", true)
-     new Computer("Windows", "DELL", false)
-     new Computer("Windows", "ASUS", false)
-     new Computer("Windows", "Lenovo", false)
-     new Computer("Windows", "Prestigious", false)
+     new Computer(new OperationSystem("Windows"), "HP", true)
+     new Computer(new OperationSystem("Windows"), "DELL", false)
+     new Computer(new OperationSystem("Windows"), "ASUS", false)
+     new Computer(new OperationSystem("Windows"), "Lenovo", false)
+     new Computer(new OperationSystem("Windows"), "Prestigious", false)
   ]
 
 let firstMatrix = 
@@ -25,11 +27,11 @@ let firstMatrix =
 
 let secondComputers =
   [
-    new Computer("Linux", "HP", true)
-    new Computer("Linux", "DELL", false)
-    new Computer("Linux", "ASUS", false)
-    new Computer("Linux", "Lenovo", false)
-    new Computer("Linux", "Prestigious", false)
+    new Computer(new OperationSystem("Linux"), "HP", true)
+    new Computer(new OperationSystem("Linux"), "DELL", false)
+    new Computer(new OperationSystem("Linux"), "ASUS", false)
+    new Computer(new OperationSystem("Linux"), "Lenovo", false)
+    new Computer(new OperationSystem("Linux"), "Prestigious", false)
   ]
 
 let secondMatrix =
@@ -44,7 +46,7 @@ let secondMatrix =
 [<Test>]
 let ``check that the 1.0 probability of infection for a virus works like a breadth-first search`` () =
    let network = new Network(firstComputers, firstMatrix)
-   network.Work(4)
+   network.Work(4, new Random())
    (network.Computers.Item 0).IsInfected |> should be True
    (network.Computers.Item 1).IsInfected |> should be True
    (network.Computers.Item 2).IsInfected |> should be True
@@ -54,7 +56,7 @@ let ``check that the 1.0 probability of infection for a virus works like a bread
 [<Test>]
 let ``check that with a probability of infection 0 no one is infected`` () =
    let network = new Network(secondComputers, secondMatrix)
-   network.Work(100)
+   network.Work(100, new Random())
    (network.Computers.Item 0).IsInfected |> should be True
    (network.Computers.Item 1).IsInfected |> should be False
    (network.Computers.Item 2).IsInfected |> should be False
