@@ -13,11 +13,10 @@ type Network (computers : Computer list, matrix : bool [,]) =
      let stepOfInfection (random : Random) = 
         for i in 0 .. (lengthOfComputerList - 1) do
           for j in 0 .. (lengthOfComputerList - 1) do
-             List.iter (fun (x : Computer) -> if x.NewlyInfected then x.NewlyInfected <- false) computers
-             if matrix.[i, j] && (computers.Item i).CanInfect then
+             List.iter (fun (x : Computer) -> x.ClearNewlyInfectedComputer()) computers
+             if matrix.[i, j] && (computers.Item i).CanInfect() then
                if (not (computers.Item j).IsInfected) && (computers.Item j).CanBeInfected(random) then
-                  (computers.Item j).IsInfected <- true
-                  (computers.Item j).NewlyInfected <- true
+                  (computers.Item j).Infect()
      
      /// Function to print current state of net.
      let printStateOfNetwork () =
