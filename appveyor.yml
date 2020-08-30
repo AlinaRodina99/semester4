@@ -1,6 +1,7 @@
 image: Visual Studio 2019
 
 before_build:
+
   - nuget restore homework5/5.1/5.1/5.1.sln
 
 build:
@@ -8,3 +9,4 @@ build:
 
 test_script:
   - dotnet test homework5/5.1/5.1/5.1.sln
+
