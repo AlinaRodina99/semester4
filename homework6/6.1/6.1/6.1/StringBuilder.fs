@@ -10,4 +10,4 @@ type StringBuilder () =
        | true, y -> y |> f
 
    member _.Return(x) =
-       x.ToString()
+       Some(x)
