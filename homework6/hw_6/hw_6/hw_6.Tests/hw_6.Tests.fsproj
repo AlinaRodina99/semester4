@@ -19,11 +19,6 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
   </ItemGroup>
 
-
-
-
-
-
   <ItemGroup>
     <ProjectReference Include="..\hw_6\hw_6.fsproj" />
   </ItemGroup>
