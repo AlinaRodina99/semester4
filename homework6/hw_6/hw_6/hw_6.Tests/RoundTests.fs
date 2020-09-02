@@ -11,7 +11,7 @@ let ``test from example`` () =
      let! a = 2.0 / 12.0
      let! b = 3.5
      return a / b
-  } |> should equal 0.048
+  } |> should (equalWithin 0.0001) 0.048
 
 [<Test>]
 let ``simple test 1`` () =
@@ -20,7 +20,7 @@ let ``simple test 1`` () =
      let! a = 3.0 / 5.0
      let! b = 3.45 * 6.8
      return a / b
-  } |> should equal 0.0256
+  } |> should (equalWithin 0.00001) 0.0256
 
 [<Test>]
 let ``simple test 2 with negative numbers`` () =
@@ -29,7 +29,7 @@ let ``simple test 2 with negative numbers`` () =
      let! a = -5.0 / 4.0
      let! b = 6.0
      return a * b
-  } |> should equal -7.50
+  } |> should (equalWithin 0.001) -7.50
 
 [<Test>]
 let ``simple test 3`` () =
@@ -38,4 +38,4 @@ let ``simple test 3`` () =
      let! a = 6.0 * 8.67
      let! b = 7.0
      return a / b
-  } |> should equal 7.431
+  } |> should (equalWithin 0.0001) 7.431
