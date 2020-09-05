@@ -4,7 +4,7 @@ open System.IO
 open System.Net
 open System.Text.RegularExpressions
 
-let regex = new Regex("<a href\s*=\s*\"?(http|https://[^\"]+)\"?\s*>")
+let regex = new Regex("<a href\s*=\s*\"?(https?://[^\"]+)\"?\s*>")
 
 /// Function that downloads url, prints count of symbols on page and returns it.
 let fetchAsync url =
