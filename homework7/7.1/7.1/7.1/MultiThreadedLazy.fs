@@ -2,6 +2,7 @@
 
 open ILazy
 
+/// Type that represents multithreaded lazy.
 type MultiThreadedLazy<'a> (supplier : unit -> 'a) =
     let mutable result = None
     let locker = new obj()

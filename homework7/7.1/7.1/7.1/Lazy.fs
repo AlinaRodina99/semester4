@@ -2,6 +2,7 @@
 
 open ILazy
 
+/// Type that represents single-threaded lazy.
 type Lazy<'a> (supplier : unit -> 'a) =
     let mutable result = None
     let mutable hasValue = false
