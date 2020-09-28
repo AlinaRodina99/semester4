@@ -7,6 +7,7 @@ open System
 /// Type that represents lock-free lazy. 
 type LockFreeLazy<'a> (supplier : unit -> 'a) =
      let mutable result = None
+     [<VolatileField>]
      let mutable hasValue = false
 
      interface ILazy<'a> with

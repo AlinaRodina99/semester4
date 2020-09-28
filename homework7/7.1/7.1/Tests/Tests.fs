@@ -37,9 +37,13 @@ let ``test to check that multithreaded lazy returns none with none supplier`` ()
 let ``test to check that multithreaded lazy calculated once`` () =
     let mutable current = 8
     let multiLazy = LazyFactory.CreateMultiThreadedLazy(fun () -> Interlocked.Increment(ref current))
-    let firstResult = multiLazy.Get()
-    for i in 1 .. 100 do
-        ThreadPool.QueueUserWorkItem(fun object -> firstResult = multiLazy.Get() |> should be True) |> ignore
+    let firstResult = 9
+    let supplier () = multiLazy.Get() |> should equal firstResult
+    let threads = Array.init 10000 (fun _ -> Thread(supplier))
+    for thread in threads do
+        thread.Start()
+    for thread in threads do
+        thread.Join()
 
 [<Test>]
 let ``simple test to check that lock-free lazy works`` () =
@@ -55,7 +59,16 @@ let ``test to check that lock-free lazy returns none with none supplier`` () =
 let ``test to check that lock-free lazy calculated once`` () =
     let mutable current = 7
     let lockFreeLazy = LazyFactory.CreateLockFreeLazy(fun () -> Interlocked.Increment(ref current))
-    let firstResult = lockFreeLazy.Get()
-    for i in 1 .. 10000 do
-        ThreadPool.QueueUserWorkItem(fun object -> firstResult = lockFreeLazy.Get() |> should be True) |> ignore
+    let firstResult = 8
+    let supplier () = lockFreeLazy.Get() |> should equal firstResult
+    let threads = Array.init 10000 (fun _ -> Thread(supplier))
+    for thread in threads do
+        thread.Start() 
+    for thread in threads do
+        thread.Join()
+
+
+
+
+   
     
