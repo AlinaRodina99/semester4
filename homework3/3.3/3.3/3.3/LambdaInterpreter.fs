@@ -17,7 +17,7 @@ let rec betaReduction expression =
         match currentExpression with 
         | Variable var when var = previousExpression -> newExpression
         | Variable _ -> currentExpression
-        | Abstraction(var, term) when not (isFreeVariable term previousExpression) || var = previousExpression -> currentExpression
+        | Abstraction(var, term) when var = previousExpression -> currentExpression
         | Abstraction(var, term) when not (isFreeVariable newExpression var) -> Abstraction(var, substitution previousExpression newExpression term)
         | Abstraction(var, term) -> let newVariable = List.head (List.filter (fun x -> x <> previousExpression) (List.filter (not << isFreeVariable newExpression) ['a'..'z']))
                                     Abstraction(newVariable, substitution previousExpression newExpression (substitution var (Variable newVariable) term))
