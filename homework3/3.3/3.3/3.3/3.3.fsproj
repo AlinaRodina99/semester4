@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>_3._3</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="LambdaTerm.fs" />
+    <Compile Include="LambdaInterpreter.fs" />
+  </ItemGroup>
+
+</Project>
