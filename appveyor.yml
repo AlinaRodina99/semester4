@@ -1,7 +1,6 @@
 image: Visual Studio 2019
 
 before_build:
-
   - nuget restore homework4/4.2/PointFree/PointFree.sln
 
 build:
