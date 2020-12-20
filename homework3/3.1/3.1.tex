@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Beta-reduction}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+$((\lambda a.(\lambda b.b\;b)(\lambda b.b\;b))b)((\lambda c.(c\;b))(\lambda a.a))=_\beta\\
+(\lambda b.b\;b)(\lambda b.b\;b))((\lambda c.(c\;b))(\lambda a.a))=_\beta((\lambda b.b\;b)(\lambda b.b\;b))(((\lambda a.a)b))=_\beta\\ 
+((\lambda b.b\;b)(\lambda b.b\;b))((b))=_\beta(\lambda b.b\;b)(\lambda b.b\;b)(b)
+$
+
+\end{document}
