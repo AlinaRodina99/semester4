@@ -1,13 +1,12 @@
 image: Visual Studio 2019
 
 before_build:
-
-  - nuget restore homework4/4.3/PhoneBook/PhoneBook.sln
+  - nuget restore homework6/hw_6/hw_6/hw_6.sln
 
 build:
-  project: homework4/4.3/PhoneBook/PhoneBook.sln
+  project: homework6/hw_6/hw_6/hw_6.sln
 
 test_script:
-  - dotnet test homework4/4.3/PhoneBook/PhoneBook.sln
+  - dotnet test homework6/hw_6/hw_6/hw_6.sln
 
 
