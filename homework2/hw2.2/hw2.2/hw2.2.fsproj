@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>hw2._2</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="MapTree.fs" />
+  </ItemGroup>
+
+</Project>
