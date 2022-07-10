@@ -1,7 +1,7 @@
 image: Visual Studio 2019
 
 before_build:
-  - nuget restore homework4/hw4.1/hw4.1.sln
+- nuget restore homework4/hw4.1/hw4.1.sln
 
 build:
   project: homework4/hw4.1/hw4.1.sln
